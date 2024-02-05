@@ -2,7 +2,7 @@
 %
 %
 %
-Aluna: Nubia Garcia -> Equação de  Poisson
+ Equação de  Poisson
 
 %% COMPILAR E EXECUTAR O PROGRAMA %%
 	
@@ -12,7 +12,6 @@ Aluna: Nubia Garcia -> Equação de  Poisson
 	EXEMPLO: ./poissonmake 200 200 
 	
 	COMANDO2 $ ./poissonmake arg1 arg2
-
 
 %% VISUALIZAÇÃO DA SOLUÇÃO %%
 
