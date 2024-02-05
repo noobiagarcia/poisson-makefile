@@ -7,7 +7,7 @@
 //#define l 900 //Qt linhas
 //#define c 900 //Qt colunas
 #define MAX 1e+10 //Numero máximo de iterações
-#define TOl 1e-13 //Tolerância do erro
+#define TOl 1e-6 //Tolerância do erro
 #define h  1e-4 //Tamanho do passo x
 #define k  1e-4 //Tamanho do passo y
 
@@ -22,18 +22,14 @@ int main(int argc, char **argv)
 	l = atoi(argv[1]);
 	c = atoi(argv[2]);
 
-	M = (double**)malloc(l*sizeof(double*)); //Alocando a matriz principal.
+	M = (double**)malloc(l*sizeof(double*)); //matriz principal.
 	for(i=0;i<l;i++)
-	{	
 		M[i] = (double*)malloc(c*sizeof(double*));
-	}
 
 	
-	Maux = (double**)malloc(l*sizeof(double*)); //Alocando a matriz auxiliar.
-	for(i=0;i<l;i++)
-	{	
+	Maux = (double**)malloc(l*sizeof(double*)); //matriz auxiliar.
+	for(i=0;i<l;i++)	
 		Maux[i] = (double*)malloc(c*sizeof(double*));
-	}	
 	
 	for(i=0;i<l;i++) //iniciandos as matrizes com zeros
 	{
@@ -44,12 +40,11 @@ int main(int argc, char **argv)
 		}
 	}
 	
-	condcontorno(M, Maux, l, c); //Aplicando as condições de contorno as matrizes.
+	condcontorno(M, Maux, l, c); //Aplicando as condições de contorno.
 
-	for(cont = 1; er>TOl && cont<MAX; cont++) //Aplicando o metodo, verificando se o erro está dentro da tolerancia e se o numero de iterações não foi exedido.
+	for(cont = 1; er>TOl && cont<MAX; cont++) //Aplicando o metodo
 	{	
 		er = mtdffin(M, Maux, l, c);
-		
 		//printf("\nPasso: %d\n %.22lf\n", cont, er); 
 	}
 	
